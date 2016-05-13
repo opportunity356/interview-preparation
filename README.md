@@ -1,4 +1,6 @@
 # interview-preparation
+
+[![Join the chat at https://gitter.im/opportunity356/interview-preparation](https://badges.gitter.im/opportunity356/interview-preparation.svg)](https://gitter.im/opportunity356/interview-preparation?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Some common interview problems solved. Wiki with helpfull information and notes.
 
 # Предварительный план
