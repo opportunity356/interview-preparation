@@ -82,13 +82,44 @@ def k_last_elem(l, k):
 
     return k_last
 
+
+def is_poly(l):
+    p1 = p2 = l
+    stack = []
+    even = True
+    while True:
+
+        stack.append(p1.data)
+        if not p2.next:
+            even = False
+            break
+        if not p2.next.next:
+            break
+
+        p1 = p1.next
+        p2 = p2.next.next
+
+        print stack
+
+        if not even:
+            stack.pop()
+
+    while p1.next:
+        p1 = p1.next
+        if p1.data != stack.pop():
+            return False
+
+    return True
+
+
 def main():
     length = 5
-    l = generate_list_with_random_data(length)
+    # l = generate_list_with_random_data(length)
 
-    l.print_list()
-
-    print k_last_elem(l, 5).data
+    # l.print_list()
+    #
+    # print is_poly(l.head)
+    # print k_last_elem(l, 5).data
 
     # print has_loop(l)
     #
@@ -103,12 +134,16 @@ def main():
     #     curr_elem = curr_elem.next
     # curr_elem = tmp
     #
-    # a = Node(3)
-    # b = Node(2, next_node=a)
-    # c = Node(1, next_node=b)
-    # a.next = b
-    # loop_l = LinkedList(head=c)
-    # print has_loop(loop_l)
+    a = Node(3)
+    b = Node(2, next_node=a)
+    c = Node(7, next_node=b)
+    d = Node(2, next_node=c)
+    e = Node(3, next_node=d)
+    ll = LinkedList(head=e)
+
+    ll.print_list()
+    print
+    print is_poly(ll.head)
 
 
 
