@@ -56,73 +56,6 @@ def generate_list_with_random_data(length, with_loop=False):
     return _l
 
 
-def has_loop(l):
-    turtle = rabbit = l.head
-
-    res = False
-    while rabbit and rabbit.next:
-
-        turtle = turtle.next
-        rabbit = rabbit.next.next
-
-        print turtle.value, rabbit.value
-
-        if turtle == rabbit:
-            res = True
-            break
-
-    return res
-
-
-def k_last_elem(l, k):
-    """
-    Function returns k-th last element of a list. 1-st last element is simply last element.
-    :param l:
-    :param k:
-    :return:
-    """
-    k_last = curr = l.head
-    i = 1
-
-    while curr.next:
-        if i >= k:
-            k_last = k_last.next
-        else:
-            i += 1
-        curr = curr.next
-
-    return k_last
-
-
-def is_poly(l):
-    p1 = p2 = l
-    stack = []
-    even = True
-    while True:
-
-        stack.append(p1.value)
-        if not p2.next:
-            even = False
-            break
-        if not p2.next.next:
-            break
-
-        p1 = p1.next
-        p2 = p2.next.next
-
-        print stack
-
-        if not even:
-            stack.pop()
-
-    while p1.next:
-        p1 = p1.next
-        if p1.value != stack.pop():
-            return False
-
-    return True
-
-
 def main():
     length = 5
     # l = generate_list_with_random_data(length)
@@ -152,9 +85,7 @@ def main():
     e = ListNode(3, next_node=d)
     ll = LinkedList(head=e)
 
-    ll.print_list()
-    print
-    print is_poly(ll.head)
+    print ll
 
 
 
