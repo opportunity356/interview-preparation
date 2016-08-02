@@ -8,29 +8,31 @@ def qsort(a):
     quick_sort(a, 0, n - 1)
 
 
-def quick_sort(a, l, r):
-    if l < r:
-        q = partition(a, l, r)
-        quick_sort(a, l, q)
-        quick_sort(a, q + 1, r)
+def quick_sort(a, left, right):
+    q = partition(a, left, right)
+    if left < q - 1:
+        quick_sort(a, left, q - 1)
+    if q < right:
+        quick_sort(a, q, right)
 
 
-def partition(a, l, r):
-    q = (l + r) // 2
-    x = a[q]
+def partition(a, left, right):
+    pivot = a[(left + right) // 2]
 
-    i = l
-    j = r
+    i = left
+    j = right
 
-    while i < j:
-        while a[i] < x:
+    while i <= j:
+        while a[i] < pivot:
             i += 1
 
-        while a[j] > x:
+        while a[j] > pivot:
             j -= 1
 
-        if i < j:
+        if i <= j:
             a[i], a[j] = a[j], a[i]
+            i += 1
+            j -= 1
 
     return i
 
